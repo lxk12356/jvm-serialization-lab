@@ -1,0 +1,85 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 4 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.StringCharsetBench.writeCjk32
+
+# Run progress: 0.00% complete, ETA 00:00:06
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 100757.564 ops/s
+# Warmup Iteration   2: 105840.319 ops/s
+Iteration   1: 109930.121 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 110398.831 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 111928.128 ops/s
+                 stack: <delayed till summary>
+
+Iteration   4: 110889.366 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.StringCharsetBench.writeCjk32":
+  110786.611 ±(99.9%) 5530.656 ops/s [Average]
+  (min, avg, max) = (109930.121, 110786.611, 111928.128), stdev = 855.875
+  CI (99.9%): [105255.956, 116317.267] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.StringCharsetBench.writeCjk32:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+ 15.5%  23.3% java.io.ObjectOutputStream.writeString
+  4.6%   6.9% jdk.internal.util.ModifiedUtf.utfLen
+  3.7%   5.6% java.io.ObjectOutputStream.writeObject
+  2.8%   4.2% lab.jvm.serialization.StringCharsetBench.writeCjk32
+  2.3%   3.4% lab.jvm.serialization.jmh_generated.StringCharsetBench_writeCjk32_jmhTest.writeCjk32_thrpt_jmhStub
+  1.7%   2.6% java.io.ObjectOutputStream$HandleTable.lookup
+  0.9%   1.4% java.io.ObjectOutputStream$HandleTable.growSpine
+  0.5%   0.7% java.io.ObjectOutputStream$HandleTable.assign
+  0.5%   0.7% java.util.Arrays.fill
+  0.9%   1.4% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# Run complete. Total time: 00:00:06
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                             Mode  Cnt       Score      Error  Units
+StringCharsetBench.writeCjk32        thrpt    4  110786.611 ± 5530.656  ops/s
+StringCharsetBench.writeCjk32:stack  thrpt              NaN               ---

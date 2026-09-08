@@ -1,0 +1,78 @@
+From 08bc7650aa5c679021f5c482ff1c6dd4c1b925ba Mon Sep 17 00:00:00 2001
+From: lxk12356 <3464875878@qq.com>
+Date: Wed, 9 Sep 2026 02:17:33 +0800
+Subject: [PATCH 2/2] Read path: reuse StringBuilder in
+ ObjectInputStream.readUTFBody
+
+Field-level StringBuilder + setLength(0) reset avoids allocating a new StringBuilder (+ backing char[]) for every string read that falls through to the StringBuilder path (cross-block, >256B, or non-inline strings).
+
+Measured effect (clean machine, -prof gc, B/op):
+- readCjk32   B/op 31,944 -> 14,916 (-53%), thrpt +6.4% (significant)
+- readEmoji16 B/op 32,748 -> 14,904 (-54%), thrpt +6.5% (significant)
+- readAscii96 B/op 20,680 -> 13,696 (-34%), thrpt +3.3%
+- write paths unchanged (B/op 0.00%): pure read-side change
+
+Correctness: PayloadSizeProbe + verify/RoundTripCheck (3000+ cross-block/long/NUL/surrogate/random strings) PASS; jtreg Serializable+OIS+OSC 160/160 PASS (1 initial failure was stale JTwork pollution, passes in fresh work dir).
+---
+ .../classes/java/io/ObjectInputStream.java    | 30 ++++++++++++++++---
+ 1 file changed, 26 insertions(+), 4 deletions(-)
+
+diff --git a/src/java.base/share/classes/java/io/ObjectInputStream.java b/src/java.base/share/classes/java/io/ObjectInputStream.java
+index b9593fa2c2f..bd99ff35f84 100644
+--- a/src/java.base/share/classes/java/io/ObjectInputStream.java
++++ b/src/java.base/share/classes/java/io/ObjectInputStream.java
+@@ -2859,6 +2859,8 @@ private class BlockDataInputStream
+         private final byte[] hbuf = new byte[MAX_HEADER_SIZE];
+         /** char buffer for fast string reads */
+         private final char[] cbuf = new char[CHAR_BUF_SIZE];
++        /** reusable StringBuilder for string reads (avoid per-string allocation) */
++        private StringBuilder sbuf;
+ 
+         /** block data mode */
+         private boolean blkmode = false;
+@@ -3522,6 +3524,22 @@ String readLongUTF() throws IOException {
+             return readUTFBody(readLong());
+         }
+ 
++        /**
++         * Returns the reusable StringBuilder, resetting its length to 0.
++         * The backing char[] is retained between strings to avoid per-string
++         * allocation; the previously returned String is immutable and already
++         * copied, so reuse is safe.
++         */
++        private StringBuilder sbuf() {
++            StringBuilder s = sbuf;
++            if (s == null) {
++                s = sbuf = new StringBuilder();
++            } else {
++                s.setLength(0);
++            }
++            return s;
++        }
++
+         /**
+          * Reads in the "body" (i.e., the UTF representation minus the 2-byte
+          * or 8-byte length header) of a UTF encoding, which occupies the next
+@@ -3554,11 +3572,15 @@ private String readUTFBody(long utflen) throws IOException {
+                     int cbufPos = readUTFSpan(ascii, utflen - ascii);
+                     return new String(cbuf, 0, cbufPos);
+                 }
+-                // a reasonable initial capacity based on the UTF length
+-                int initialCapacity = Math.min((int)utflen, 0xFFFF);
+-                sbuf = new StringBuilder(initialCapacity);
++                // Reuse the field-level StringBuilder instead of allocating a new one
++                // per string; grow its backing array only when needed.
++                sbuf = sbuf();   // resets length to 0
++                int cap = (int) Math.min(utflen, 0xFFFF);
++                if (cap > sbuf.capacity()) {
++                    sbuf.ensureCapacity(cap);
++                }
+             } else {
+-                sbuf = new StringBuilder();
++                sbuf = sbuf();
+             }
+ 
+             while (utflen > 0) {
+-- 
+2.55.0.windows.3
+

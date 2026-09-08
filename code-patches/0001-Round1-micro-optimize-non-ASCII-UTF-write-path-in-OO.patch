@@ -1,0 +1,71 @@
+From fecbb5932364b8fc8ef74795b705bce0336fbfd0 Mon Sep 17 00:00:00 2001
+From: lxk12356 <3464875878@qq.com>
+Date: Wed, 9 Sep 2026 01:09:13 +0800
+Subject: [PATCH 1/2] Round1: micro-optimize non-ASCII UTF write path in
+ OOS/ModifiedUtf
+
+- writeMoreUTF: inline ModifiedUtf.putChar to reuse computed csize, eliminating duplicate width check per char
+- ModifiedUtf.utfLen: reorder branches so c>=0x800 (CJK/emoji) hits first for branch-prediction friendliness
+
+Semantics proven equivalent via exhaustive check over all 65536 chars + 200k random mixed strings (verify/UtfEquivalence.java); jtreg Serializable+ObjectInputStream 154 tests pass; NUL still encoded as C0 80.
+JMH A/B on noisy machine showed no significant gain (most methods error-overlap); re-measure when machine idle.
+---
+ .../classes/java/io/ObjectOutputStream.java      | 16 +++++++++++++++-
+ .../classes/jdk/internal/util/ModifiedUtf.java   | 14 ++++++++++++--
+ 2 files changed, 27 insertions(+), 3 deletions(-)
+
+diff --git a/src/java.base/share/classes/java/io/ObjectOutputStream.java b/src/java.base/share/classes/java/io/ObjectOutputStream.java
+index 31413bcf8ed..ef7ffc9f182 100644
+--- a/src/java.base/share/classes/java/io/ObjectOutputStream.java
++++ b/src/java.base/share/classes/java/io/ObjectOutputStream.java
+@@ -1930,7 +1930,21 @@ private void writeMoreUTF(String str, int stroff) throws IOException {
+                     drain();
+                     pos = 0;
+                 }
+-                pos = putChar(buf, pos, c);
++                // 内联 ModifiedUtf.putChar：csize 上面已经算过一次，这里直接按
++                // csize 分支写入，避免每个字符重复判断一次宽度。等价性：
++                // csize==1 ⟺ c!=0 && c<0x80；csize==3 ⟺ c>=0x800，与 putChar 完全一致。
++                if (csize == 1) {
++                    buf[pos++] = (byte) c;
++                } else if (csize == 3) {
++                    buf[pos    ] = (byte) (0xE0 | c >> 12 & 0x0F);
++                    buf[pos + 1] = (byte) (0x80 | c >> 6  & 0x3F);
++                    buf[pos + 2] = (byte) (0x80 | c       & 0x3F);
++                    pos += 3;
++                } else {
++                    buf[pos    ] = (byte) (0xC0 | c >> 6 & 0x1F);
++                    buf[pos + 1] = (byte) (0x80 | c      & 0x3F);
++                    pos += 2;
++                }
+             }
+             this.pos = pos;
+         }
+diff --git a/src/java.base/share/classes/jdk/internal/util/ModifiedUtf.java b/src/java.base/share/classes/jdk/internal/util/ModifiedUtf.java
+index a8d2fe8bb74..976bfb61896 100644
+--- a/src/java.base/share/classes/jdk/internal/util/ModifiedUtf.java
++++ b/src/java.base/share/classes/jdk/internal/util/ModifiedUtf.java
+@@ -63,8 +63,18 @@ public static int utfLen(String str, int countNonZeroAscii) {
+         int utflen = str.length();
+         for (int i = utflen - 1; i >= countNonZeroAscii; i--) {
+             int c = str.charAt(i);
+-            if (c >= 0x80 || c == 0)
+-                utflen += (c >= 0x800) ? 2 : 1;
++            // 分支顺序调整：把多字节字符（c >= 0x800，如 CJK / emoji 增补平面）
++            // 放在首位，使最常见的情形一次判断命中，利于 CPU 分支预测。
++            // 语义与原实现完全等价：
++            //   c >= 0x800            -> +2（原：c>=0x80 成立且取 2）
++            //   0x80 <= c < 0x800     -> +1（原：c>=0x80 成立且取 1）
++            //   c == 0                -> +1（原：c==0 使条件成立且取 1）
++            //   其余（c<0x80 且 c!=0）-> 不增加
++            if (c >= 0x800) {
++                utflen += 2;
++            } else if (c >= 0x80 || c == 0) {
++                utflen += 1;
++            }
+         }
+         return utflen;
+     }
+-- 
+2.55.0.windows.3
+

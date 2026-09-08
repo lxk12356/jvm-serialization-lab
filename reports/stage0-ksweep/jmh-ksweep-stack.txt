@@ -1,0 +1,339 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.KSweepBench.readKCustomer
+# Parameters: (K = 128)
+
+# Run progress: 0.00% complete, ETA 00:00:25
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 32236.844 ops/s
+# Warmup Iteration   2: 35325.321 ops/s
+Iteration   1: 26740.971 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 12816.243 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 11673.932 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.KSweepBench.readKCustomer":
+  17077.049 ±(99.9%) 153040.543 ops/s [Average]
+  (min, avg, max) = (11673.932, 17077.049, 26740.971), stdev = 8388.669
+  CI (99.9%): [≈ 0, 170117.592] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.KSweepBench.readKCustomer:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+ 14.8%  22.2% java.io.ObjectInputStream$PeekInputStream.readFully
+  3.1%   4.7% java.io.ObjectInputStream$BlockDataInputStream.read
+  2.8%   4.2% java.io.ObjectStreamClass$FieldReflector.setObjFieldValues
+  2.7%   4.0% java.io.ObjectStreamClass$FieldReflector.setPrimFieldValues
+  1.6%   2.4% java.lang.Class.forName0
+  1.3%   1.9% java.io.ObjectInputStream.readHandle
+  0.9%   1.4% java.io.ObjectInputStream$HandleTable.assign
+  0.8%   1.2% java.lang.String.intern
+  0.8%   1.2% java.io.ObjectInputStream$FieldValues.<init>
+  4.6%   6.8% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.KSweepBench.readKOrder
+# Parameters: (K = 128)
+
+# Run progress: 20.00% complete, ETA 00:00:22
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 3230.243 ops/s
+# Warmup Iteration   2: 3519.566 ops/s
+Iteration   1: 2886.411 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 1098.757 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 1064.414 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.KSweepBench.readKOrder":
+  1683.194 ±(99.9%) 19012.844 ops/s [Average]
+  (min, avg, max) = (1064.414, 1683.194, 2886.411), stdev = 1042.158
+  CI (99.9%): [≈ 0, 20696.038] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.KSweepBench.readKOrder:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+ 14.2%  21.3% java.io.ObjectInputStream$PeekInputStream.readFully
+  4.4%   6.6% java.io.ObjectInputStream$BlockDataInputStream.read
+  3.5%   5.2% java.io.ObjectStreamClass$FieldReflector.setObjFieldValues
+  1.9%   2.8% java.io.ObjectInputStream$BlockDataInputStream.readUTF
+  1.1%   1.7% java.io.ObjectInputStream.readHandle
+  0.9%   1.4% java.io.ObjectInputStream$PeekInputStream.read
+  0.9%   1.4% java.io.ObjectInputStream$BlockDataInputStream.readUTFSpan
+  0.8%   1.2% java.io.ObjectStreamClass$FieldReflector.setPrimFieldValues
+  0.6%   0.9% java.io.ObjectInputStream.readSerialData
+  4.9%   7.3% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.KSweepBench.readKPoint
+# Parameters: (K = 128)
+
+# Run progress: 40.00% complete, ETA 00:00:17
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 53571.598 ops/s
+# Warmup Iteration   2: 57121.004 ops/s
+Iteration   1: 46684.522 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 19196.670 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 17374.049 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.KSweepBench.readKPoint":
+  27751.747 ±(99.9%) 299590.572 ops/s [Average]
+  (min, avg, max) = (17374.049, 27751.747, 46684.522), stdev = 16421.570
+  CI (99.9%): [≈ 0, 327342.319] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.KSweepBench.readKPoint:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+ 17.2%  25.8% java.io.ObjectInputStream$PeekInputStream.readFully
+  4.1%   6.1% java.io.ObjectInputStream$BlockDataInputStream.read
+  2.2%   3.3% java.io.ObjectInputStream.readHandle
+  1.6%   2.3% java.lang.Class.forName0
+  1.6%   2.3% java.lang.invoke.Invokers$Holder.invokeExact_MT
+  0.9%   1.4% java.lang.String.intern
+  0.9%   1.4% java.io.ObjectInputStream$HandleTable.finish
+  0.8%   1.2% java.io.ObjectInputStream$FieldValues.<init>
+  0.8%   1.2% jdk.internal.misc.VM.latestUserDefinedLoader0
+  3.3%   4.9% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.KSweepBench.readKUnicodeList
+# Parameters: (K = 128)
+
+# Run progress: 60.00% complete, ETA 00:00:11
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1016.046 ops/s
+# Warmup Iteration   2: 1118.032 ops/s
+Iteration   1: 773.502 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 342.709 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 281.964 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.KSweepBench.readKUnicodeList":
+  466.058 ±(99.9%) 4888.965 ops/s [Average]
+  (min, avg, max) = (281.964, 466.058, 773.502), stdev = 267.981
+  CI (99.9%): [≈ 0, 5355.023] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.KSweepBench.readKUnicodeList:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+ 15.3%  23.0% java.io.ObjectInputStream$PeekInputStream.readFully
+  7.4%  11.1% java.io.ObjectInputStream$BlockDataInputStream.readUTFSpan
+  2.2%   3.3% java.io.ObjectInputStream$BlockDataInputStream.readUTFBody
+  2.1%   3.1% java.lang.StringBuilder.toString
+  1.3%   1.9% java.io.ObjectInputStream.readObject
+  1.1%   1.7% java.io.ObjectInputStream$HandleTable.finish
+  0.6%   0.9% java.lang.invoke.Invokers$Holder.invokeExact_MT
+  0.5%   0.7% java.lang.String.intern
+  0.5%   0.7% java.io.ObjectInputStream$HandleTable.assign
+  2.4%   3.6% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# JMH version: 1.37
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
+# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM options: <none>
+# Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
+# Warmup: 2 iterations, 1 s each
+# Measurement: 3 iterations, 1 s each
+# Timeout: 10 min per iteration
+# Threads: 1 thread, will synchronize iterations
+# Benchmark mode: Throughput, ops/time
+# Benchmark: lab.jvm.serialization.KSweepBench.writeKUnicodeList
+# Parameters: (K = 128)
+
+# Run progress: 80.00% complete, ETA 00:00:05
+# Fork: 1 of 1
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+# Warmup Iteration   1: 1467.316 ops/s
+# Warmup Iteration   2: 1524.884 ops/s
+Iteration   1: 1075.991 ops/s
+                 stack: <delayed till summary>
+
+Iteration   2: 477.040 ops/s
+                 stack: <delayed till summary>
+
+Iteration   3: 492.792 ops/s
+                 stack: <delayed till summary>
+
+
+
+Result "lab.jvm.serialization.KSweepBench.writeKUnicodeList":
+  681.941 ±(99.9%) 6227.460 ops/s [Average]
+  (min, avg, max) = (477.040, 681.941, 1075.991), stdev = 341.348
+  CI (99.9%): [≈ 0, 6909.401] (assumes normal distribution)
+
+Secondary result "lab.jvm.serialization.KSweepBench.writeKUnicodeList:stack":
+Stack profiler:
+
+....[Thread state distributions]....................................................................
+ 66.7%         RUNNABLE
+ 33.3%         TIMED_WAITING
+
+....[Thread state: RUNNABLE]........................................................................
+ 33.3%  50.0% <stack is empty, everything is filtered?>
+  8.5%  12.8% java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode
+  8.2%  12.3% java.io.ObjectOutputStream$BlockDataOutputStream.writeMoreUTF
+  4.4%   6.6% java.io.ObjectOutputStream$HandleTable.lookup
+  3.8%   5.7% java.lang.StringCoding.countNonZeroAscii
+  1.4%   2.1% java.io.ObjectOutputStream$HandleTable.growSpine
+  1.1%   1.7% java.io.ObjectOutputStream$BlockDataOutputStream.writeBytes
+  0.9%   1.4% jdk.internal.util.ModifiedUtf.utfLen
+  0.8%   1.2% java.lang.StringCoding.countNonZeroAsciiLatin1
+  0.8%   1.2% java.io.ObjectOutputStream$HandleTable.assign
+  3.3%   5.0% <other>
+
+....[Thread state: TIMED_WAITING]...................................................................
+ 33.3% 100.0% java.lang.Object.wait0
+
+
+
+# Run complete. Total time: 00:00:28
+
+REMEMBER: The numbers below are just data. To gain reusable insights, you need to follow up on
+why the numbers are the way they are. Use profilers (see -prof, -lprof), design factorial
+experiments, perform baseline and negative tests that provide experimental control, make sure
+the benchmarking environment is safe on JVM/OS/HW level, ask for reviews from the domain experts.
+Do not assume the numbers tell you what you want them to tell.
+
+NOTE: Current JVM experimentally supports Compiler Blackholes, and they are in use. Please exercise
+extra caution when trusting the results, look into the generated code to check the benchmark still
+works, and factor in a small probability of new VM bugs. Additionally, while comparisons between
+different JVMs are already problematic, the performance difference caused by different Blackhole
+modes can be very significant. Please make sure you use the consistent Blackhole mode for comparisons.
+
+Benchmark                            (K)   Mode  Cnt      Score        Error  Units
+KSweepBench.readKCustomer            128  thrpt    3  17077.049 ± 153040.543  ops/s
+KSweepBench.readKCustomer:stack      128  thrpt             NaN                 ---
+KSweepBench.readKOrder               128  thrpt    3   1683.194 ±  19012.844  ops/s
+KSweepBench.readKOrder:stack         128  thrpt             NaN                 ---
+KSweepBench.readKPoint               128  thrpt    3  27751.747 ± 299590.572  ops/s
+KSweepBench.readKPoint:stack         128  thrpt             NaN                 ---
+KSweepBench.readKUnicodeList         128  thrpt    3    466.058 ±   4888.965  ops/s
+KSweepBench.readKUnicodeList:stack   128  thrpt             NaN                 ---
+KSweepBench.writeKUnicodeList        128  thrpt    3    681.941 ±   6227.460  ops/s
+KSweepBench.writeKUnicodeList:stack  128  thrpt             NaN                 ---
