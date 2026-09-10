@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
-"""对比 v2 全量基准：基线(baseline/jmh-baseline.csv) vs 优化后(fullbench csv)。
+"""对比 v2 全量基准：基线 CSV vs 优化后 CSV。
 主判据: gc.alloc.rate.norm (B/op, ±0.1B, 跨时段可比)
 参考:   吞吐 ops/s (跨时段受机器状态影响, 仅方向参考)
-用法: python compare_fullbench.py <opt.csv>
+用法: python compare_fullbench.py <baseline.csv> <opt.csv>
+
+注意：基线与全量对比采用过不同的 JMH 叉数（baseline -f 3 -wi 5 -i 8
+      vs fullbench -f 2 -wi 4 -i 6）。B/op 是确定性度量，与叉数/迭代数
+      无关，跨表比较有效；吞吐 ops/s 受 fork/warmup/iter 配置影响，
+      不可跨此表比较（只可在同会话紧邻 A/B 下做吞吐判定）。
 """
 import csv, sys
 
@@ -20,8 +25,8 @@ def load(path):
             d[name]['b'] = float(r['Score'])
     return d
 
-base = load('D:/kona/task2-serialization/baseline/jmh-baseline.csv')
-opt = load(sys.argv[1])
+base = load(sys.argv[1])
+opt = load(sys.argv[2])
 
 rows = []
 for k in base:
@@ -33,6 +38,8 @@ for k in base:
 def side(k): return 'W' if k.split('.')[-1].startswith('write') else 'R'
 
 print("## v2 全量 24 基准: 基线 vs 优化后\n")
+print("> 警告：以下表格的基线与优化列采集自不同 JMH fork/warmup/iter（见脚本顶部注释）。")
+print("> 仅 B/op 列可跨表比较；吞吐 ops/s 不可跨此表比较。\n")
 print("| 方法 | 侧 | 基线 B/op | 优化 B/op | B/op 变化 | 基线 ops/s | 优化 ops/s | 吞吐变化(参考) |")
 print("|---|---|---:|---:|---:|---:|---:|---:|")
 tot_b = tot_o = 0

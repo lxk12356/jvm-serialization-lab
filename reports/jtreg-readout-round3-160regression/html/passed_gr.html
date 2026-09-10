@@ -1,0 +1,501 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>JT Harness : Tests that passed</title>
+<link rel="stylesheet" href="report.css" type="text/css">
+</head>
+<body>
+<h1>JT Harness : Tests that passed</h1>Tests are grouped by their final status message.
+<h4>Clean successful</h4>
+
+<ul>
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/GetField/Write.jtr">java/io/Serializable/GetField/Write.java</a>: Verify proper basic functionality of the ObjectInputStream.GetField API
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/badResolve/Write.jtr">java/io/Serializable/enum/badResolve/Write.java</a>: Verify that enum classes present in a serialization stream cannot be resolved by the receiver to non-enum classes, and vice-versa.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/constantSubclasses/Write.jtr">java/io/Serializable/enum/constantSubclasses/Write.java</a>: Verify that serialization of enum constants that are instances of constant-specific subclasses functions properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/missingConstant/Write.jtr">java/io/Serializable/enum/missingConstant/Write.java</a>: Verify that deserialization of an enum constant that does not exist on the receiving side results in an InvalidObjectException.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/unresolvedClassDesc/Write.jtr">java/io/Serializable/unresolvedClassDesc/Write.java</a>: Verify that even if an incoming ObjectStreamClass is not resolvable to a local class, the ObjectStreamClass object itself is still deserializable (without incurring a ClassNotFoundException).
+</ul>
+
+<h4>Execution successful</h4>
+
+<ul>
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectInputStream/NegativeArraySizeTest.jtr">java/io/ObjectInputStream/NegativeArraySizeTest.java</a>: ObjectInputStream::readObject() should handle negative array sizes without throwing NegativeArraySizeExceptions
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectInputStream/PeekInputStreamTest.jtr">java/io/ObjectInputStream/PeekInputStreamTest.java</a>: verifies java.io.ObjectInputStream.PeekInputStream.skip works as intended
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectInputStream/ResolveProxyClass.jtr">java/io/ObjectInputStream/ResolveProxyClass.java</a>: ObjectInputStream's default implementation of its protected resolveProxyClass method is specified to pass the first non-null class loader up the execution stack to the Proxy.getProxyClass method when it creates the specified proxy class; this test makes sure that it does that in situations where it hadn't in the past, such as if the defining loaders of the interfaces were all strict ancestors of the first non-null loader up the stack.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectInputStream/TestObjectStreamClass.jtr">java/io/ObjectInputStream/TestObjectStreamClass.java</a>: ObjectStreamClass.getField(String) too restrictive
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/ObjectStreamClassCaching_G1.jtr">java/io/ObjectStreamClass/ObjectStreamClassCaching.java#G1</a>: ObjectStreamClass caches keep ClassLoaders alive (G1 GC)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/ObjectStreamClassCaching_Parallel.jtr">java/io/ObjectStreamClass/ObjectStreamClassCaching.java#Parallel</a>: ObjectStreamClass caches keep ClassLoaders alive (Parallel GC)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/ObjectStreamClassCaching_Serial.jtr">java/io/ObjectStreamClass/ObjectStreamClassCaching.java#Serial</a>: ObjectStreamClass caches keep ClassLoaders alive (Serial GC)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/ObjectStreamClassCaching_Shenandoah.jtr">java/io/ObjectStreamClass/ObjectStreamClassCaching.java#Shenandoah</a>: ObjectStreamClass caches keep ClassLoaders alive (Shenandoah GC)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/ObjectStreamClassCaching_Z.jtr">java/io/ObjectStreamClass/ObjectStreamClassCaching.java#Z</a>: ObjectStreamClass caches keep ClassLoaders alive (ZGC)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/ObjectStreamClass/TestOSCClassLoaderLeak.jtr">java/io/ObjectStreamClass/TestOSCClassLoaderLeak.java</a>: ObjectStreamClass caches keep ClassLoaders alive
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/ClassCastExceptionDetail/Write.jtr">java/io/Serializable/ClassCastExceptionDetail/Write.java</a>: Verify that the message string of a ClassCastException thrown by ObjectInputStream when attempting to assign a value to a field of an incompatible type contains the names of the value's class, the field's declaring class, the field's type, and the field itself.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/GetField/ReadFieldsCNF.jtr">java/io/Serializable/GetField/ReadFieldsCNF.java</a>: Verify that ObjectInputStream ReadFields correctly reports ClassNotFoundException while getting the field value.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/InvalidClassException/TestIceConstructors.jtr">java/io/Serializable/InvalidClassException/TestIceConstructors.java</a>: Verify message and cause handling of InvalidClassException
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/InvalidClassException/noargctor/DefaultPackage.jtr">java/io/Serializable/InvalidClassException/noargctor/DefaultPackage.java</a>: Raise InvalidClassException if 1st NonSerializable superclass' no-arg constructor is not accessible.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/InvalidClassException/noargctor/Test.jtr">java/io/Serializable/InvalidClassException/noargctor/Test.java</a>: Validate accessibility checking to NonSerializable superclass constuctor.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/InvalidObjectException/TestIoeConstructors.jtr">java/io/Serializable/InvalidObjectException/TestIoeConstructors.java</a>: Verify message and cause handling of InvalidObjectException
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/NPEProvoker/NPEProvoker.jtr">java/io/Serializable/NPEProvoker/NPEProvoker.java</a>: this test checks that ObjectInputStream throws an IOException instead of a NullPointerException when deserializing an ArrayList of Externalizables if there is an IOException while deserializing one of these Externalizables.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/NoClassDefFoundErrorTrap/NoClassDefFoundErrorTrap.jtr">java/io/Serializable/NoClassDefFoundErrorTrap/NoClassDefFoundErrorTrap.java</a>: When ObjectInputStream.inputClassDescriptor calls its protected resolveClass, if a NoClassDefFoundError is thrown, that Error should be propagated to the caller, instead of being trapped and transformed into a ClassNotFoundException for the class being resolved.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/PutField/Write.jtr">java/io/Serializable/PutField/Write.java</a>: Verify that the ObjectOutputStream.PutField API works as advertised.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/PutField/Write2.jtr">java/io/Serializable/PutField/Write2.java</a>: Verify that ObjectOutputStream.PutField.write() works for objects that do not define primitive serializable fields.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/arraySuidConflict/Write.jtr">java/io/Serializable/arraySuidConflict/Write.java</a>: Verify that array serialVersionUID conflicts caused by changes in package scope do not cause deserialization to fail.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/auditStreamSubclass/AuditStreamSubclass.jtr">java/io/Serializable/auditStreamSubclass/AuditStreamSubclass.java</a>: Verify that ObjectOutputStream and ObjectInputStream can be constructed
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/available/Available.jtr">java/io/Serializable/available/Available.java</a>: Verify that ObjectInputStream.available() functions properly when called at the beginning of a data block, and that it does not attempt any read operations that may potentially block.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/backRefCNFException/Write.jtr">java/io/Serializable/backRefCNFException/Write.java</a>: Verify that reading a back reference to a previously skipped value whose class is not available will throw a ClassNotFoundException
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/badSerialPersistentField/BadSerialPersistentField.jtr">java/io/Serializable/badSerialPersistentField/BadSerialPersistentField.java</a>: Verify that object whose class declared a serial persistent field that does not match any actual field cannot be serialized via default serialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/badSerialVersionUID/BadSerialVersionUID.jtr">java/io/Serializable/badSerialVersionUID/BadSerialVersionUID.java</a>: Verify that when serialVersionUID is declared with a type other than long, values that can be promoted to long will be used, and those that can't be will be ignored (but will not result in unchecked exceptions).
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/badSubstByReplace/BadSubstByReplace.jtr">java/io/Serializable/badSubstByReplace/BadSubstByReplace.java</a>: Verify that ClassCastException is thrown when deserializing an object and one of its object fields is  incompatibly replaced by either replaceObject/resolveObject.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/checkModifiers/CheckModifiers.jtr">java/io/Serializable/checkModifiers/CheckModifiers.java</a>: Make sure that serialpersistentFields data member is used to represent tyhe serializable fields only if it has the modfiers static, final, private and the type is ObjectStreamField.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/class/NonSerializableTest.jtr">java/io/Serializable/class/NonSerializableTest.java</a>: Enable serialize of nonSerializable Class descriptor.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescFlagConflict/Read.jtr">java/io/Serializable/classDescFlagConflict/Read.java</a>: Verify that reading an object whose class descriptor has both SC_SERIALIZABLE and SC_EXTERNALIZABLE bits set results in an InvalidClassException.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescGetField/GetField.jtr">java/io/Serializable/classDescGetField/GetField.java</a>: Make sure that getField() of ObjectStreamClass works correctly for object types.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescHooks/CNFException.jtr">java/io/Serializable/classDescHooks/CNFException.java</a>: Verify that a ClassNotFoundException thrown by the readClassDescriptor method is reflected to the caller as an InvalidClassException with the ClassNotFoundException as its cause.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescHooks/ClassDescHooks.jtr">java/io/Serializable/classDescHooks/ClassDescHooks.java</a>: Ensure that class descriptor read, write hooks exist, are backwards compatible, and work as advertised.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescHooks/ExternLoopback.jtr">java/io/Serializable/classDescHooks/ExternLoopback.java</a>: Verify that serialization functions properly for externalizable classes if ObjectInputStream.readClassDescriptor() returns a local class descriptor.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/classDescHooks/Loopback.jtr">java/io/Serializable/classDescHooks/Loopback.java</a>: Verify that serialization functions properly if ObjectInputStream.readClassDescriptor() returns a local class descriptor for which the serialVersionUID has not yet been calculated.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/clearHandleTable/ClearHandleTable.jtr">java/io/Serializable/clearHandleTable/ClearHandleTable.java</a>: Ensure that ObjectOutputStream properly releases strong references to written objects when reset() is called.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/cloneArray/CloneArray.jtr">java/io/Serializable/cloneArray/CloneArray.java</a>: Verify ObjectInputStream.cloneArray works on many kinds of arrays
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/concurrentClassDescLookup/ConcurrentClassDescLookup.jtr">java/io/Serializable/concurrentClassDescLookup/ConcurrentClassDescLookup.java</a>: Verify that concurrent class descriptor lookups function properly, even when class descriptor initialization is slow or throws an exception.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/corruptedUTFConsumption/CorruptedUTFConsumption.jtr">java/io/Serializable/corruptedUTFConsumption/CorruptedUTFConsumption.java</a>: Although technically the behavior of ObjectInputStream following a UTFDataFormatException is unspecified, verify that ObjectInputStream consumes at most the expected number of utf bytes, even if the last byte(s) of the utf string indicate that the string overflows its expected length.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/defaultDataEnd/DefaultDataEnd.jtr">java/io/Serializable/defaultDataEnd/DefaultDataEnd.java</a>: Verify that a custom readObject() method reading in data written via default serialization cannot read past the end of the default data.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/defaultReadObjectCNFException/DefaultReadObjectCNFException.jtr">java/io/Serializable/defaultReadObjectCNFException/DefaultReadObjectCNFException.java</a>: Verify that ObjectInputStream.defaultReadObject() throws a ClassNotFoundException if any of the non-primitive field values it reads in are tagged with ClassNotFoundExceptions.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/defaulted/GetFieldWrite.jtr">java/io/Serializable/defaulted/GetFieldWrite.java</a>: Make sure that fields that are defaulted can be of primitive and object type.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/duplicateSerialFields/Test.jtr">java/io/Serializable/duplicateSerialFields/Test.java</a>: Verify that if a serializable class declares multiple serialPersistentFields that share the same name, calling ObjectStreamClass.lookup() for that class will not result in an InternalError, and that attempts at default serialization or deserialization of such a class will result in InvalidClassExceptions.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/array/Test.jtr">java/io/Serializable/enum/array/Test.java</a>: Verify that serialization of enum constant arrays functions properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/basic/Test.jtr">java/io/Serializable/enum/basic/Test.java</a>: Verify that basic serialization of non-specialized enum constants functions properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/classObject/Test.jtr">java/io/Serializable/enum/classObject/Test.java</a>: Verify that serialization of Class objects for enum types works properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/ignoreSerializationFields/Test.jtr">java/io/Serializable/enum/ignoreSerializationFields/Test.java</a>: Verify that serialVersionUID and serialPersistentFields declarations made by enum types and constants are ignored.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/ignoreSerializationMethods/Test.jtr">java/io/Serializable/enum/ignoreSerializationMethods/Test.java</a>: Verify that custom serialization methods defined by enum types are not invoked during serialization or deserialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/mismatchedTypecode/Test.jtr">java/io/Serializable/enum/mismatchedTypecode/Test.java</a>: Verify that TC_OBJECT followed by a class descriptor for an enum class results in an InvalidClassException, as does TC_ENUM followed by a class descriptor for a non-enum class.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/enum/unshared/Test.jtr">java/io/Serializable/enum/unshared/Test.java</a>: Verify that unshared write and read operations work properly with enum constants.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/evolution/AddedExternField/WriteAddedField.jtr">java/io/Serializable/evolution/AddedExternField/WriteAddedField.java</a>: Evolution: read evolved class with new field of a non-existing Externalizable class.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/evolution/AddedField/WriteAddedField.jtr">java/io/Serializable/evolution/AddedField/WriteAddedField.java</a>: Deserialize an evolved class with a new field, field type is new.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/evolution/AddedSuperClass/WriteAddedSuperClass.jtr">java/io/Serializable/evolution/AddedSuperClass/WriteAddedSuperClass.java</a>: Test reading an evolved class serialization into the original class version.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/evolution/RenamePackage/RenamePackageTest.jtr">java/io/Serializable/evolution/RenamePackage/RenamePackageTest.java</a>: Enable resolveClass() to accommodate package renaming.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/expectedStackTrace/ExpectedStackTrace.jtr">java/io/Serializable/expectedStackTrace/ExpectedStackTrace.java</a>: Verify that stack trace contains a proper cause of InvalidClassException (methods: checkSerialize, checkDeserialize or checkDefaultSerialize)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/explicitCNFException/ExplicitCNFException.jtr">java/io/Serializable/explicitCNFException/ExplicitCNFException.java</a>: Verify that ClassNotFoundExceptions explicitly constructed and thrown from with custom readObject/readExternal methods are propagated properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/failureAtomicity/FailureAtomicity.jtr">java/io/Serializable/failureAtomicity/FailureAtomicity.java</a>: Better failure atomicity for default read object.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/fieldTypeString/Write.jtr">java/io/Serializable/fieldTypeString/Write.java</a>: Verify that serialization does not require matching type strings for non-primitive fields.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/finalFields/FinalFields.jtr">java/io/Serializable/finalFields/FinalFields.java</a>: Ensure that ObjectInputStream can set final fields.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/getSuidClinitError/GetSuidClinitError.jtr">java/io/Serializable/getSuidClinitError/GetSuidClinitError.java</a>: Verify that ObjectStreamClass.getSerialVersionUID() will not mask Errors (other than NoSuchMethodError) triggered by JNI query for static initializer method.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/illegalHandle/Test.jtr">java/io/Serializable/illegalHandle/Test.java</a>: Verify that ObjectInputStream throws a StreamCorruptedException if it reads in an out-of-bounds handle value.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/inactiveRegistration/InactiveRegistration.jtr">java/io/Serializable/inactiveRegistration/InactiveRegistration.java</a>: Verify that ObjectInputStream.registerValidation() throws a NotActiveException when invoked on inactive stream.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/longString/LongString.jtr">java/io/Serializable/longString/LongString.java</a>: Ensure that object streams support serialization of long strings (strings whose UTF representation &gt; 64k in length)
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/lookupAnyInvocation/LookupAnyInvocation.jtr">java/io/Serializable/lookupAnyInvocation/LookupAnyInvocation.java</a>: Verify that ObjectStreamClass.lookupAny() returns a non-null descriptor for class which doesn't implement java.io.Serializable interface at all.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/lookupInterfaceDesc/LookupInterfaceDesc.jtr">java/io/Serializable/lookupInterfaceDesc/LookupInterfaceDesc.java</a>: Verify that ObjectStreamClass.lookup() functions properly for interfaces.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/maskSyntheticModifier/MaskSyntheticModifierTest.jtr">java/io/Serializable/maskSyntheticModifier/MaskSyntheticModifierTest.java</a>: Verify that the presence of the JVM_ACC_SYNTHETIC bit in the modifiers of fields and methods does not affect default serialVersionUID calculation.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/misplacedArrayClassDesc/MisplacedArrayClassDesc.jtr">java/io/Serializable/misplacedArrayClassDesc/MisplacedArrayClassDesc.java</a>: Verify that if the class descriptor for an ordinary object is the descriptor for an array class, an ObjectStreamException is thrown.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/modifyStaticFields/ModifyStaticFields.jtr">java/io/Serializable/modifyStaticFields/ModifyStaticFields.java</a>: Verify that serialPersistentFields cannot be used to cause deserialization to set the value of a static field.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/nestedReplace/NestedReplace.jtr">java/io/Serializable/nestedReplace/NestedReplace.java</a>: Ensure that replacement objects can nominate their own replacements, so long as the replacement is not the same class as the just-replaced object.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/noSuchFieldClarification/NoSuchFieldClarification.jtr">java/io/Serializable/noSuchFieldClarification/NoSuchFieldClarification.java</a>: this test verifies that exception from GetField.get method will be a more comprehensible
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/nonserializable/ExceptionDetail.jtr">java/io/Serializable/nonserializable/ExceptionDetail.java</a>: Verify that serialization includes the offending class name in the message string of a NotSerializableException.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/notAvailable/NotAvailable.jtr">java/io/Serializable/notAvailable/NotAvailable.java</a>: Ensure readObject() works when InputStream.available() is not implemented.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/nullArgExceptionOrder/Test.jtr">java/io/Serializable/nullArgExceptionOrder/Test.java</a>: Verify that if ObjectInputStream.read(byte[], int, int) is called with a null byte array and invalid offset/length values, a NullPointerException is thrown rather than an IndexOutOfBoundsException.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/AnnotateClass.jtr">java/io/Serializable/oldTests/AnnotateClass.java</a>: it is new version of old test which was /src/share/test/serialization/subtest.java This test verifies of invocation annotateClass/replaceObject methods
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/ArrayFields.jtr">java/io/Serializable/oldTests/ArrayFields.java</a>: it is a new version of an old test which was /src/share/test/serialization/piotest.java Test of serialization/deserialization of objects with fields of array type
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/ArraysOfArrays.jtr">java/io/Serializable/oldTests/ArraysOfArrays.java</a>: it is new version of old test which was under /src/share/test/serialization/piotest.java Test of serialization/deserialization of objects as arrays of arrays
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/BinaryTree.jtr">java/io/Serializable/oldTests/BinaryTree.java</a>: it is new version of old test which was /src/share/test/serialization/piotest.java Test of serialization/deserialization of objects with BinaryTree types
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/CheckForException.jtr">java/io/Serializable/oldTests/CheckForException.java</a>: it is new version of old test which was /src/share/test/serialization/psiotest.java Test pickling and unpickling an object with derived classes and using a read special to serialize the "middle" class, which raises NotSerializableException inside writeObject() and readObject() methods.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/CheckingEquality.jtr">java/io/Serializable/oldTests/CheckingEquality.java</a>: it is new version of old test which was /src/share/test/serialization/psiotest.java Test pickling and unpickling an object with derived classes and using a read special to serialize the "middle" class.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/CircularList.jtr">java/io/Serializable/oldTests/CircularList.java</a>: it is new version of old test which was /src/share/test/serialization/piotest.java Test of serialization/deserialization of objects with CircularListType types
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/SerializeWithException.jtr">java/io/Serializable/oldTests/SerializeWithException.java</a>: it is a new version of an old test which was /src/share/test/serialization/piotest.java Test of serialization when there is exceptions on the I/O stream
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/SimpleArrays.jtr">java/io/Serializable/oldTests/SimpleArrays.java</a>: it is a new version of an old test which was /src/share/test/serialization/piotest.java Test of serialization/deserialization of objects with Arrays types
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/ValidateClass.jtr">java/io/Serializable/oldTests/ValidateClass.java</a>: it is new version of old test which was under /src/share/test/serialization/psiotest.java Test validation callbacks
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/oldTests/WritePrimitive.jtr">java/io/Serializable/oldTests/WritePrimitive.java</a>: it is a new version of an old test which was /src/share/test/serialization/piotest.java Test of serialization/deserialization of primitives
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/optionalDataEnd/OptionalDataEnd.jtr">java/io/Serializable/optionalDataEnd/OptionalDataEnd.java</a>: Verify that an OptionalDataException with eof == true is thrown when a call to ObjectInputStream.readObject() attempts to read past the end of custom data.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/packageAccess/PackageAccessTest.jtr">java/io/Serializable/packageAccess/PackageAccessTest.java</a>: Verify proper functioning of package equality checks used to determine accessibility of superclass constructor and inherited writeReplace/readResolve methods.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/parents/OriginalClass.jtr">java/io/Serializable/parents/OriginalClass.java</a>: To ensure that during deserializing classes, only the highest non-serializable class in the hierarchy has its no-arg constructor invoked.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/partialClassDesc/PartialClassDesc.jtr">java/io/Serializable/partialClassDesc/PartialClassDesc.java</a>: Verify that partially initialized ObjectStreamClass instances cannot be obtained from ObjectStreamClass.lookup() in the event that the target class is uninitializable.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/primitiveClasses/PrimitiveClasses.jtr">java/io/Serializable/primitiveClasses/PrimitiveClasses.java</a>: Verify that primitive classes can be serialized and deserialized.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/proxy/Basic.jtr">java/io/Serializable/proxy/Basic.java</a>: Verifies basic correct functioning of proxy serialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/proxy/replace/Test.jtr">java/io/Serializable/proxy/replace/Test.java</a>: Ensure that serialization invokes writeReplace/readResolve methods on dynamic proxies, just as with normal objects.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/proxy/skipMissing/Write.jtr">java/io/Serializable/proxy/skipMissing/Write.java</a>: Verify that ObjectInputStream can skip over unresolvable serialized proxy instances.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/readObjectNoData/Write.jtr">java/io/Serializable/readObjectNoData/Write.java</a>: Verify that a custom readObjectNoData method, if defined properly by a serializable superclass, gets invoked during deserialization of a subclass instance whose serialized form omits a class descriptor corresponding to the superclass.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/readPastObject/ReadPastObject.jtr">java/io/Serializable/readPastObject/ReadPastObject.java</a>: Ensure that ObjectInputStream.readObject() is called, it doesn't read past the end of the object in the underlying stream.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/AbsentStreamValuesTest.jtr">java/io/Serializable/records/AbsentStreamValuesTest.java</a>: Checks that the appropriate default value is given to the canonical ctr
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/BadCanonicalCtrTest.jtr">java/io/Serializable/records/BadCanonicalCtrTest.java</a>: InvalidClassException is thrown when the canonical constructor cannot be found during deserialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/BadValues.jtr">java/io/Serializable/records/BadValues.java</a>: Basic test for ClassNotFoundException
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/BasicRecordSer.jtr">java/io/Serializable/records/BasicRecordSer.java</a>: Basic test that serializes and deserializes a number of records
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/ConstructorAccessTest.jtr">java/io/Serializable/records/ConstructorAccessTest.java</a>: Ensures that the serialization implementation can *always* access the record constructor
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/CycleTest.jtr">java/io/Serializable/records/CycleTest.java</a>: Ensures basic behavior of cycles from record components
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/DifferentStreamFieldsTest.jtr">java/io/Serializable/records/DifferentStreamFieldsTest.java</a>: Checks that the appropriate value is given to the canonical ctr
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/ProhibitedMethods.jtr">java/io/Serializable/records/ProhibitedMethods.java</a>: Basic tests for prohibited magic serialization methods
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/ReadResolveTest.jtr">java/io/Serializable/records/ReadResolveTest.java</a>: Basic tests for readResolve
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/RecordClassTest.jtr">java/io/Serializable/records/RecordClassTest.java</a>: Basic tests for serializing and deserializing record classes
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/SerialPersistentFieldsTest.jtr">java/io/Serializable/records/SerialPersistentFieldsTest.java</a>: Basic tests for prohibited magic serialPersistentFields
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/SerialVersionUIDTest.jtr">java/io/Serializable/records/SerialVersionUIDTest.java</a>: Basic tests for SUID in the serial stream
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/StreamRefTest.jtr">java/io/Serializable/records/StreamRefTest.java</a>: Tests for stream references
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/ThrowingConstructorTest.jtr">java/io/Serializable/records/ThrowingConstructorTest.java</a>: Tests constructor invocation exceptions are handled appropriately
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/UnsharedTest.jtr">java/io/Serializable/records/UnsharedTest.java</a>: ObjectInputStream readUnshared method handling of Records
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/WriteReplaceTest.jtr">java/io/Serializable/records/WriteReplaceTest.java</a>: Basic tests for writeReplace
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/migration/AssignableFromTest.jtr">java/io/Serializable/records/migration/AssignableFromTest.java</a>: Test for subtype stream field value assign-ability
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/migration/DefaultValuesTest.jtr">java/io/Serializable/records/migration/DefaultValuesTest.java</a>: Checks that the appropriate default value is given to the canonical ctr
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/records/migration/SuperStreamFieldsTest.jtr">java/io/Serializable/records/migration/SuperStreamFieldsTest.java</a>: superclass fields in the stream should be discarded
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/recursiveClassDescLookup/Test.jtr">java/io/Serializable/recursiveClassDescLookup/Test.java</a>: Verify that a nested call to ObjectStreamClass.lookup from within the static initializer of a serializable class will not cause deadlock.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/replaceStringArray/ReplaceStringArray.jtr">java/io/Serializable/replaceStringArray/ReplaceStringArray.java</a>: Enable substitution of String and Array by ObjectStreams.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/replaceWithNull/ReplaceWithNull.jtr">java/io/Serializable/replaceWithNull/ReplaceWithNull.java</a>: Ensure that it is okay to replace an object with null.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/resolveClass/MethodTest.jtr">java/io/Serializable/resolveClass/MethodTest.java</a>: Verify that generated java.lang.reflect implementation classes do not interfere with serialization's class resolution mechanism.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/resolveClass/consTest/ConsTest.jtr">java/io/Serializable/resolveClass/consTest/ConsTest.java</a>: Verify that generated java.lang.reflect implementation classes do not interfere with serialization's class resolution mechanism.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/resolveClass/deserializeButton/DeserializeButtonTest.jtr">java/io/Serializable/resolveClass/deserializeButton/DeserializeButtonTest.java</a>: Verify that class loaded outside of application class loader is correctly resolved during deserialization when read in by custom readObject() method of a bootstrap class (in this case, java.util.Vector).
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/resolveClassException/ResolveClassException.jtr">java/io/Serializable/resolveClassException/ResolveClassException.java</a>: Ensure that original ClassNotFoundException thrown inside of ObjectInputStream.resolveClass() is preserved (and thrown).
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/resolveProxyClass/NonPublicInterface.jtr">java/io/Serializable/resolveProxyClass/NonPublicInterface.java</a>: Verify that ObjectInputStream.resolveProxyClass can properly resolve a dynamic proxy class which implements a non-public interface not defined in the latest user defined class loader.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/sanityCheck/SanityCheck.jtr">java/io/Serializable/sanityCheck/SanityCheck.java</a>: Basic sanity check to test if default (de)serialization is transmitting values properly.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/CheckArrayTest.jtr">java/io/Serializable/serialFilter/CheckArrayTest.java</a>: Test the SharedSecret access to ObjectInputStream.checkArray works with overridden subclasses.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/CheckInputOrderTest.jtr">java/io/Serializable/serialFilter/CheckInputOrderTest.java</a>: Test that when both global filter and specific filter are set, global filter will not affect specific filter.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/GlobalFilterTest.jtr">java/io/Serializable/serialFilter/GlobalFilterTest.java</a>: Test Global Filters
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/InvalidGlobalFilterTest.jtr">java/io/Serializable/serialFilter/InvalidGlobalFilterTest.java</a>: Test that an invalid pattern value for the jdk.serialFilter system property causes an exception to be thrown when an attempt is made to use the filter or deserialize.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/MixedFiltersTest.jtr">java/io/Serializable/serialFilter/MixedFiltersTest.java</a>: Test that when both global filter and specific filter are set, global filter will not affect specific filter.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/SerialFactoryExample.jtr">java/io/Serializable/serialFilter/SerialFactoryExample.java</a>: Test SerialFactoryExample
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/SerialFactoryFaults.jtr">java/io/Serializable/serialFilter/SerialFactoryFaults.java</a>: Check cases where the Filter Factory initialization from properties fails
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/SerialFilterFactoryTest.jtr">java/io/Serializable/serialFilter/SerialFilterFactoryTest.java</a>: Test Context-specific Deserialization Filters
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/SerialFilterFunctionTest.jtr">java/io/Serializable/serialFilter/SerialFilterFunctionTest.java</a>: ObjectInputFilter.Config Function Tests
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialFilter/SerialFilterTest.jtr">java/io/Serializable/serialFilter/SerialFilterTest.java</a>: Test ObjectInputFilters using Builtin Filter Factory
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialProxy/SerialProxyClassNotFound.jtr">java/io/Serializable/serialProxy/SerialProxyClassNotFound.java</a>: Test missing class throws CNFE before creating record or setting class fields
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialver/classpath/ClasspathTest.jtr">java/io/Serializable/serialver/classpath/ClasspathTest.java</a>: Test the use of the -classpath switch in the serialver application.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/serialver/nested/NestedTest.jtr">java/io/Serializable/serialver/nested/NestedTest.java</a>: To test the use of nested class specification using the '.' notation instead of the '$' notation.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/skipToEndOfBlockData/SkipToEndOfBlockData.jtr">java/io/Serializable/skipToEndOfBlockData/SkipToEndOfBlockData.java</a>: Ensure that ObjectInputStream properly skips over block data when a class that defines readObject() or readExternal() fails to read all of the data written by the corresponding writeObject() or writeExternal() method.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/skipWriteObject/Write.jtr">java/io/Serializable/skipWriteObject/Write.java</a>: Ensure that ObjectInputStream can successfully skip over an object written using a class-defined writeObject method for which the class is not resolvable.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/skippedObjCNFException/Write.jtr">java/io/Serializable/skippedObjCNFException/Write.java</a>: Verify that ClassNotFoundExceptions caused by values referenced (perhaps transitively) by "skipped" fields will not cause deserialization failure.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/stopCustomDeserialization/Write.jtr">java/io/Serializable/stopCustomDeserialization/Write.java</a>: Verify that readObject and readObjectNoData methods will not be called on an object being deserialized if that object is already tagged with a ClassNotFoundException.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/subclass/SubclassTest.jtr">java/io/Serializable/subclass/SubclassTest.java</a>: Verify that [write/read]ObjectOverride methods get called.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/subclassGC/SubclassGC.jtr">java/io/Serializable/subclassGC/SubclassGC.java</a>: this test checks that replacing SoftCache class with ConcurrentMap in ObjectInputStream/ObjectOutputStream gives an opportunity to classes which are inherited from OIS and OOS and loaded through separate ClassLoaders be available for garbage collection
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/superclassDataLoss/SuperclassDataLossTest.jtr">java/io/Serializable/superclassDataLoss/SuperclassDataLossTest.java</a>: Verify that superclass data is not lost when incoming superclass descriptor is matched with local class that is not a superclass of the deserialized instance's class.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/survivePrematureClose/SurvivePrematureClose.jtr">java/io/Serializable/survivePrematureClose/SurvivePrematureClose.java</a>: Verify that if the custom serialization method (i.e., readExternal, writeExternal, readObject or writeObject) of an object closes the stream it is passed, (de)serialization of that object can still complete.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/typeSafeEnum/TypeSafeEnum.jtr">java/io/Serializable/typeSafeEnum/TypeSafeEnum.java</a>: Verify that writeReplace &amp; readResolve are called by serialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/typeStringBackRef/TypeStringBackRef.jtr">java/io/Serializable/typeStringBackRef/TypeStringBackRef.java</a>: Verify that back references are used when writing multiple type strings that are equal() to one another.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/underlyingOutputStreamException/UnderlyingOutputStreamException.jtr">java/io/Serializable/underlyingOutputStreamException/UnderlyingOutputStreamException.java</a>: Verify that if ObjectOutputStream's underlying OutputStream throws an IOException, the original IOException (not a StreamCorruptedException) will be thrown to the writing thread.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/unnamedPackageSwitch/UnnamedPackageSwitchTest.jtr">java/io/Serializable/unnamedPackageSwitch/UnnamedPackageSwitchTest.java</a>: Verify that deserialization allows an incoming class descriptor representing a class in the unnamed package to be resolved to a local class with the same name in a named package, and vice-versa.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/unresolvableObjectStreamClass/UnresolvableObjectStreamClass.jtr">java/io/Serializable/unresolvableObjectStreamClass/UnresolvableObjectStreamClass.java</a>: NPE when writing a class descriptor object to a custom ObjectOutputStream
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/unshared/Write.jtr">java/io/Serializable/unshared/Write.java</a>: Test ObjectOutputStream.writeUnshared/readUnshared functionality.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/userRWObjError/UserRWObjError.jtr">java/io/Serializable/userRWObjError/UserRWObjError.java</a>: Ensure that Error exception is propogated from Serializable class' readObject &amp; writeObject method.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/validate/Validate.jtr">java/io/Serializable/validate/Validate.java</a>: Verify that an object is not validated more than once during deserialization.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/verifyDynamicObjHandleTable/VerifyDynamicObjHandleTable.jtr">java/io/Serializable/verifyDynamicObjHandleTable/VerifyDynamicObjHandleTable.java</a>: Test that regrow of object/handle table of ObjectOutputStream works.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/writeObjectMemory/WriteObjectMemory.jtr">java/io/Serializable/writeObjectMemory/WriteObjectMemory.java</a>: Test that regrow of object/handle table of ObjectOutputStream works.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/writeReplace/WriteReplace.jtr">java/io/Serializable/writeReplace/WriteReplace.java</a>: Test proper functioning of class-defined writeReplace methods.
+
+<li>
+<a href="../../jtreg-work-round2-rerun/java/io/Serializable/wrongReturnTypes/Write.jtr">java/io/Serializable/wrongReturnTypes/Write.java</a>: Verify that custom serialization methods declared with incorrect return types are not invoked.
+</ul>
+<hr>
+<small>Report generated on 2026年9月10日 17:32:05
+<br>Using JT Harness 6.0 b26; built on 2026年3月18日 CST 00:00:00 with openjdk version "25.0.3-ea" 2026-04-21</small></body></html>

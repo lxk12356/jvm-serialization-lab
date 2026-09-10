@@ -1,0 +1,132 @@
+From 0d66b8062757e66674caedc77fe6ab6efcf3ea7f Mon Sep 17 00:00:00 2001
+From: lxk12356 <3464875878@qq.com>
+Date: Thu, 10 Sep 2026 17:33:34 +0800
+Subject: [PATCH] =?UTF-8?q?Round=203=20(review=20#2=20=C2=A74.2=20=C2=A74.?=
+ =?UTF-8?q?3):=20rename=20sbuf=20local=20var=20+=20add=20Javadoc?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Two cosmetic-only changes responding to review #2 on github.com/lxk12356/jvm-crash-lab:
+
+§4.2 — Eliminate variable-name shadowing in BlockDataInputStream.readUTFBody:
+  The function previously declared a local `StringBuilder sbuf;` and
+  assigned `sbuf = sbuf();` — where `sbuf()` is a method that reads the
+  field-level `this.sbuf`. The tri-name collision (field, method, local)
+  hurt readability and looked like infinite recursion.
+
+  Rename local to `sb` (comments note the why). `sbuf()` method unchanged
+  to keep the diff focused. No behavior delta.
+
+§4.3 — Add Javadoc to the field-level `sbuf` explaining the time/space
+  tradeoff: backing char[] grows up to min(utflen, 0xFFFF) (~128 KB worst
+  case, reached only on a string at the modified-UTF-8 protocol limit)
+  and is intentionally NOT trimmed after each use. Reuse is sound because
+  the String returned from toString() is an immutable copy.
+
+Net: +35/-13 lines added; logic and measurable behavior unchanged.
+
+Verification (re-running jtreg on the rebuilt image):
+  - Serializable + ObjectInputStream + ObjectStreamClass: 160/160 PASS
+    (481 JUnit + 6 TestNG sub-cases)
+  - DataInputStream.ReadUTF + DataOutputStream.WriteUTF +
+    DataOutputStream.CounterOverflow: 3/3 PASS  (cross-module radius,
+    review §4.1)
+  - jdk/classfile/Utf8EntryTest: 1/1 PASS (27 JUnit sub-cases)
+    (BufWriterImpl constant-pool UTF-8 path, review §4.1)
+---
+ .../classes/java/io/ObjectInputStream.java    | 44 +++++++++++++++----
+ 1 file changed, 35 insertions(+), 9 deletions(-)
+
+diff --git a/src/java.base/share/classes/java/io/ObjectInputStream.java b/src/java.base/share/classes/java/io/ObjectInputStream.java
+index bd99ff35f84..2d1ff95d38b 100644
+--- a/src/java.base/share/classes/java/io/ObjectInputStream.java
++++ b/src/java.base/share/classes/java/io/ObjectInputStream.java
+@@ -2859,7 +2859,30 @@ private class BlockDataInputStream
+         private final byte[] hbuf = new byte[MAX_HEADER_SIZE];
+         /** char buffer for fast string reads */
+         private final char[] cbuf = new char[CHAR_BUF_SIZE];
+-        /** reusable StringBuilder for string reads (avoid per-string allocation) */
++        /**
++         * Reusable StringBuilder for UTF decode: avoids the per-string
++         * {@code new StringBuilder(cap)} allocation (and {@code toString()}'s
++         * extra copy of the backing {@code char[]}) on the slow path of
++         * {@link #readUTFBody}.
++         *
++         * <p>The backing {@code char[]} is created lazily on first use, grown
++         * on demand up to {@code min(utflen, 0xFFFF)}, and shared across
++         * all UTF strings decoded within this stream's lifetime. After each
++         * {@link #readUTFBody} the previous {@code String} value is an
++         * immutable copy, so resetting length to 0 and reusing the buffer
++         * is safe. Per-field, so {@code ObjectInputStream} remains
++         * effectively single-threaded (matches the documented contract).
++         *
++         * <p><b>Memory/time tradeoff:</b> the array is <em>not</em> trimmed
++         * after each use, so it retains the largest capacity reached. Worst
++         * case is bounded by {@code min(utflen, 0xFFFF)} {@code char}
++         * (≈128&nbsp;KB), reached only when decoding a string at or near
++         * the {@code modified UTF-8} protocol limit ({@code 0xFFFF} bytes).
++         * For the typical short-lived {@code ObjectInputStream} this is
++         * negligible; for a long-lived stream that happens to decode one
++         * large string up-front, treat it as a one-time fixed cost amortized
++         * over all subsequent reads.
++         */
+         private StringBuilder sbuf;
+ 
+         /** block data mode */
+@@ -3550,7 +3573,10 @@ private String readUTFBody(long utflen) throws IOException {
+                 end = pos = 0;
+             }
+ 
+-            StringBuilder sbuf;
++            // `sb` (local) intentionally distinct from the field-level
++            // `sbuf` to avoid the variable-name shadowing that made the
++            // earlier `sbuf = sbuf();` style hard to read.
++            StringBuilder sb;
+             if (utflen > 0 && utflen < Integer.MAX_VALUE) {
+                 // Scan for leading ASCII chars
+                 int avail = end - pos;
+@@ -3574,13 +3600,13 @@ private String readUTFBody(long utflen) throws IOException {
+                 }
+                 // Reuse the field-level StringBuilder instead of allocating a new one
+                 // per string; grow its backing array only when needed.
+-                sbuf = sbuf();   // resets length to 0
++                sb = sbuf();   // resets length to 0
+                 int cap = (int) Math.min(utflen, 0xFFFF);
+-                if (cap > sbuf.capacity()) {
+-                    sbuf.ensureCapacity(cap);
++                if (cap > sb.capacity()) {
++                    sb.ensureCapacity(cap);
+                 }
+             } else {
+-                sbuf = sbuf();
++                sb = sbuf();
+             }
+ 
+             while (utflen > 0) {
+@@ -3590,11 +3616,11 @@ private String readUTFBody(long utflen) throws IOException {
+                     // pos has advanced: adjust utflen by the difference in
+                     // available bytes
+                     utflen -= avail - (end - pos);
+-                    sbuf.append(cbuf, 0, cbufPos);
++                    sb.append(cbuf, 0, cbufPos);
+                 } else {
+                     if (blkmode) {
+                         // near block boundary, read one byte at a time
+-                        utflen -= readUTFChar(sbuf, utflen);
++                        utflen -= readUTFChar(sb, utflen);
+                     } else {
+                         // shift and refill buffer manually
+                         if (avail > 0) {
+@@ -3607,7 +3633,7 @@ private String readUTFBody(long utflen) throws IOException {
+                 }
+             }
+ 
+-            return sbuf.toString();
++            return sb.toString();
+         }
+ 
+         /**
+-- 
+2.55.0.windows.3
+

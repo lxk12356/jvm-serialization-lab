@@ -1,0 +1,1 @@
+java/io/DataOutputStream/WriteUTF.java total: 3, passed: 3, failed: 0, skipped: 0, config failed: 0, config skipped: 0

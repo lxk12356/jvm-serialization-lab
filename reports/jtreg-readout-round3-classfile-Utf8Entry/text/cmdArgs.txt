@@ -1,0 +1,5 @@
+-jdk:build/release/images/jdk
+-w:/tmp/jtreg-work-cf
+-reportDir:/tmp/jtreg-report-cf
+-verbose:summary
+test/jdk/jdk/classfile/Utf8EntryTest.java

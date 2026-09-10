@@ -14,6 +14,7 @@ garbage-pack.idx.bak
 
 # ---- jtreg 运行产物（大，结果已汇总进报告）----
 reports/jtreg-*/
+!reports/jtreg-readout*/
 jtreg/results/
 jtreg/work-baseline/
 

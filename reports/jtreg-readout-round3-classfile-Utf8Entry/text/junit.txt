@@ -1,0 +1,1 @@
+jdk/classfile/Utf8EntryTest.java containers: 6, skipped: 0, started: 6, succeeded: 6, failed: 0, aborted: 0; tests: 27, skipped: 0, started: 27, succeeded: 27, failed: 0, aborted: 0

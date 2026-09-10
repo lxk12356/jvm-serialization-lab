@@ -1,0 +1,7 @@
+-jdk:build/release/images/jdk
+-w:/tmp/jtreg-work-round3
+-reportDir:/tmp/jtreg-report-round3
+-verbose:summary
+test/jdk/java/io/DataInputStream/ReadUTF.java
+test/jdk/java/io/DataOutputStream/WriteUTF.java
+test/jdk/java/io/DataOutputStream/CounterOverflow.java

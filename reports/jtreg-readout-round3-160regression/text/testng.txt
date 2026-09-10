@@ -1,0 +1,2 @@
+java/io/ObjectStreamClass/ObjectStreamClassCaching.java total: 5, passed: 5, failed: 0, skipped: 0, config failed: 0, config skipped: 0
+java/io/ObjectStreamClass/TestOSCClassLoaderLeak.java total: 1, passed: 1, failed: 0, skipped: 0, config failed: 0, config skipped: 0

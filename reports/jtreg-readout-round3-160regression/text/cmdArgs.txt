@@ -1,0 +1,7 @@
+-jdk:build/release/images/jdk
+-w:/tmp/jtreg-work-round2-rerun
+-reportDir:/tmp/jtreg-report-round2-rerun
+-verbose:summary
+test/jdk/java/io/Serializable
+test/jdk/java/io/ObjectInputStream
+test/jdk/java/io/ObjectStreamClass

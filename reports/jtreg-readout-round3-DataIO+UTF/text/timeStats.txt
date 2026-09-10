@@ -1,0 +1,7 @@
+ time,count
+    0,    1
+    1,    2
+
+Mean                 0.67s
+Standard deviation   0.47s
+Total elapsed time 0m 3s
