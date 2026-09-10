@@ -1,9 +1,9 @@
 <p align="center">
   <img src="https://img.shields.io/badge/Status-Completed-brightgreen" alt="Status">
-  <img src="https://img.shields.io/badge/jtreg-160%2F160-brightgreen" alt="jtreg">
+  <img src="https://img.shields.io/badge/jtreg-164%2F164-brightgreen" alt="jtreg">
   <img src="https://img.shields.io/badge/Read%20B%2Fop--17.1%25-orange" alt="Read B/op -17.1%">
-  <img src="https://img.shields.io/badge/Code-%2B27%2F%E2%88%924%20lines-blue" alt="+27/-4 lines">
-  <img src="https://img.shields.io/badge/Commits-2-blue" alt="2 commits">
+  <img src="https://img.shields.io/badge/Code-%2B35%2F%E2%88%9213%20lines-blue" alt="+35/-13 lines">
+  <img src="https://img.shields.io/badge/Commits-3-blue" alt="3 commits">
 </p>
 
 <h1 align="center">📦 任务二：序列化加速</h1>
@@ -136,6 +136,11 @@ task2-serialization/
 **2.2.5 第二轮：读侧 StringBuilder 复用** → commit `08bc7650aa5`
 
 - JFR 定位每串 new StringBuilder；复用后 readCjk32 B/op **−53.3%**、吞吐 +6.4%（显著）。
+
+**2.2.6 第三轮：review #2 整改** → source commit `0d66b806275`（TencentKona-25 fork） + deliverable commit `cd81812`（本仓库）
+
+- review #2 (Strong Accept) 的 4 项整改 + §6 卫生全部落地：sbuf 局部重命名 + builder 复用 Javadoc（`ObjectInputStream.java`）+ 跨模块影响半径扩充（`DataInputStream.ReadUTF` + `DataOutputStream.WriteUTF` + `CounterOverflow` + `jdk/classfile/Utf8EntryTest`，共 164/164 + 514 framework 子用例）+ 报告脱敏 + 全量 bench 表注（`compare_fullbench.py` 加可比性警告）。
+- 报告：[5-最终交付报告 §11/§12](reports/5-最终交付报告.md) · [0-审查者导读](reports/0-审查者导读.md) · 评审：[jvm-crash-lab/issues/2](https://github.com/lxk12356/jvm-crash-lab/issues/2)
 
 **2.3 优化性能与差异分析**
 
