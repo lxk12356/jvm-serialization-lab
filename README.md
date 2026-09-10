@@ -34,6 +34,7 @@
 | 📄 看**最终结论** | [5-最终交付报告](reports/5-最终交付报告.md)（思路 → 发现 → 改动 → 测试 → 复现） |
 | 🧪 看**每一步实验** | [4-优化实验全记录](reports/4-优化实验全记录.md)（动机→做法→验证→数据→结论） |
 | 📝 看**代码 diff** | [code-patches/0001-...patch](code-patches/0001-Round1-micro-optimize-non-ASCII-UTF-write-path-in-OO.patch) · [0002-...patch](code-patches/0002-Read-path-reuse-StringBuilder-in-ObjectInputStream.r.patch) |
+| 🔧 取**源码补丁分支** | [fork 分支 task2-serialization-accel](https://github.com/lxk12356/TencentKona-25/tree/task2-serialization-accel) · [只看两提交 diff](https://github.com/lxk12356/TencentKona-25/compare/0066a9ff900...task2-serialization-accel) |
 | 📊 看**原始数据** | [baseline CSV](baseline/jmh-baseline.csv) · [优化后 CSV](reports/fullbench-opt/jmh-fullbench-opt.csv) |
 
 ---
@@ -96,7 +97,7 @@ task2-serialization/
 | 项 | 值 |
 |---|---|
 | 被测 JDK | 腾讯 Kona JDK 25 release 镜像（`TencentKona-25/build/release/images/jdk`） |
-| JDK 源码 | `TencentKona-25`（分支 `task2-serialization-accel`） |
+| JDK 源码 | `TencentKona-25` fork 分支 [`task2-serialization-accel`](https://github.com/lxk12356/TencentKona-25/tree/task2-serialization-accel)（基于 `0066a9ff900`，即 WhiteBox 工作之后） |
 | 构建环境 | Cygwin（仅跑 `make`；git 一律用 Git Bash） |
 | 功能回归 | jtreg：`test/jdk/java/io/{Serializable,ObjectInputStream,ObjectStreamClass}` |
 | 性能判据 | **B/op**（`gc.alloc.rate.norm`，±0.1 B）为主判据，跨时段可比；吞吐仅采信同会话紧邻 A/B |
