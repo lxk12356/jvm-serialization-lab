@@ -1,5 +1,5 @@
 From fecbb5932364b8fc8ef74795b705bce0336fbfd0 Mon Sep 17 00:00:00 2001
-From: lxk12356 <3464875878@qq.com>
+From: lxk12356 <lxk12356@users.noreply.github.com>
 Date: Wed, 9 Sep 2026 01:09:13 +0800
 Subject: [PATCH 1/2] Round1: micro-optimize non-ASCII UTF write path in
  OOS/ModifiedUtf

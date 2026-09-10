@@ -1,10 +1,10 @@
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -17,7 +17,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Run progress: 0.00% complete, ETA 00:00:30
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 79538.068 ops/s
@@ -68,8 +68,8 @@ Stack profiler:
 
 
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -82,7 +82,7 @@ Stack profiler:
 # Run progress: 16.67% complete, ETA 00:00:27
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 66838.246 ops/s
@@ -129,8 +129,8 @@ Stack profiler:
 
 
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -143,7 +143,7 @@ Stack profiler:
 # Run progress: 33.33% complete, ETA 00:00:22
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 64975.744 ops/s
@@ -190,8 +190,8 @@ Stack profiler:
 
 
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -204,7 +204,7 @@ Stack profiler:
 # Run progress: 50.00% complete, ETA 00:00:16
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 180948.683 ops/s
@@ -251,8 +251,8 @@ Stack profiler:
 
 
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -265,7 +265,7 @@ Stack profiler:
 # Run progress: 66.67% complete, ETA 00:00:11
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 96931.790 ops/s
@@ -312,8 +312,8 @@ Stack profiler:
 
 
 # JMH version: 1.37
-# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.34648.TencentKona-25
-# VM invoker: D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe
+# VM version: JDK 25.0.4-internal, OpenJDK 64-Bit Server VM, 25.0.4-internal-adhoc.<user>.TencentKona-25
+# VM invoker: <KONA_ROOT>\build\release\images\jdk\bin\java.exe
 # VM options: <none>
 # Blackhole mode: compiler (auto-detected, use -Djmh.blackhole.autoDetect=false to disable)
 # Warmup: 2 iterations, 1 s each
@@ -326,7 +326,7 @@ Stack profiler:
 # Run progress: 83.33% complete, ETA 00:00:05
 # Fork: 1 of 1
 WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
-WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/D:/kona/task2-serialization/jmh/target/serialization-bench.jar)
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by org.openjdk.jmh.util.Utils (file:/<LAB_ROOT>/jmh/target/serialization-bench.jar)
 WARNING: Please consider reporting this to the maintainers of class org.openjdk.jmh.util.Utils
 WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 # Warmup Iteration   1: 98182.699 ops/s

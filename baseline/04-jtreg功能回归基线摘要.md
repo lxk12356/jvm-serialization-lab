@@ -2,9 +2,9 @@
 
 在未做任何序列化改动的 Tencent Kona JDK 25 release 镜像上运行。
 
-- 被测 JDK：`D:\kona\TencentKona-25\build\release\images\jdk`
+- 被测 JDK：`<KONA_ROOT>\build\release\images\jdk`
   （25.0.4-internal，release 配置）
-- jtreg：`D:\kona\jtreg`（直接调用 `jtreg.jar`）
+- jtreg：`<JTREG_HOME>`（直接调用 `jtreg.jar`）
 - 日期：2026-09-07
 - 命令：`powershell task2-serialization/jtreg/run-jtreg-baseline.ps1`
   （`-conc:8 -timeoutFactor:2 -ignore:quiet`，`-v:fail,error`）

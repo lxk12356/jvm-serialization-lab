@@ -1,5 +1,5 @@
 From 08bc7650aa5c679021f5c482ff1c6dd4c1b925ba Mon Sep 17 00:00:00 2001
-From: lxk12356 <3464875878@qq.com>
+From: lxk12356 <lxk12356@users.noreply.github.com>
 Date: Wed, 9 Sep 2026 02:17:33 +0800
 Subject: [PATCH 2/2] Read path: reuse StringBuilder in
  ObjectInputStream.readUTFBody

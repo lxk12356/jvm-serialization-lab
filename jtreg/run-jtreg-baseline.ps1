@@ -1,8 +1,10 @@
+# 路径占位符：<KONA_ROOT> = TencentKona-25 源码/构建根；<JTREG_HOME> = jtreg 解压根；<LAB_ROOT> = 本仓库根。
+# 运行前替换为本机实际路径（也可直接传参覆盖默认值）。
 param(
-    [string]$JdkImage = "D:\kona\TencentKona-25\build\release\images\jdk",
-    [string]$KonaRoot  = "D:\kona\TencentKona-25",
-    [string]$JtregHome = "D:\kona\jtreg",
-    [string]$OutRoot   = "D:\kona\task2-serialization\jtreg",
+    [string]$JdkImage = "<KONA_ROOT>\build\release\images\jdk",
+    [string]$KonaRoot  = "<KONA_ROOT>",
+    [string]$JtregHome = "<JTREG_HOME>",
+    [string]$OutRoot   = "<LAB_ROOT>\jtreg",
     [int]$Concurrency  = 8,
     [string]$ReportName = "baseline-jtreg"
 )

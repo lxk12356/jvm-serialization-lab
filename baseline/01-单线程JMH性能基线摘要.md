@@ -5,12 +5,12 @@
 （`jmh-baseline-v1-10benches.csv`）仅作备份——两次运行间隔数小时、
 机器状态不同，跨会话数值不可直接比较。
 
-- 被测 JDK：`D:\kona\TencentKona-25\build\release\images\jdk`
+- 被测 JDK：`<KONA_ROOT>\build\release\images\jdk`
   （25.0.4-internal，与当前源码一致，无本地改动）
 - 机器：12 代 Intel Core i9-12900HX，16 核 / 24 线程，15.7 GB 内存，Windows
 - JMH 1.37，fat jar：`jmh/target/serialization-bench.jar`
 - 命令（明确使用 Kona JDK 25）：
-  `D:\kona\TencentKona-25\build\release\images\jdk\bin\java.exe -jar D:\kona\task2-serialization\jmh\target\serialization-bench.jar -f 3 -wi 5 -i 8 -w 2s -r 2s -foe true -prof gc -rf csv -rff D:\kona\task2-serialization\baseline\jmh-baseline.csv`
+  `<KONA_ROOT>\build\release\images\jdk\bin\java.exe -jar <LAB_ROOT>\jmh\target\serialization-bench.jar -f 3 -wi 5 -i 8 -w 2s -r 2s -foe true -prof gc -rf csv -rff <LAB_ROOT>\baseline\jmh-baseline.csv`
 - 模式：吞吐量（thrpt）、单线程；24 个基准方法 × 3 forks × 8 次正式迭代
   （每基准 24 个样本）；JDK 25 实验性 compiler blackhole 生效
 

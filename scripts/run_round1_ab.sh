@@ -1,14 +1,16 @@
 #!/bin/bash
+# 路径占位符：<KONA_ROOT> = TencentKona-25 源码/构建根；<LAB_ROOT> = 本仓库根（task2-serialization）。
+# 运行前替换为本机实际路径（Cygwin 下形如 /cygdrive/<盘符>/<目录>/TencentKona-25）。
 set -e
-cd /cygdrive/d/kona/TencentKona-25
-B=/cygdrive/d/kona/task2-serialization/backup-round1
-O=/cygdrive/d/kona/task2-serialization/patchsrc_orig
+cd "<KONA_ROOT>"
+B="<LAB_ROOT>/backup-round1"
+O="<LAB_ROOT>/patchsrc_orig"
 F1=src/java.base/share/classes/java/io/ObjectOutputStream.java
 F2=src/java.base/share/classes/jdk/internal/util/ModifiedUtf.java
 
-JDK="D:/kona/TencentKona-25/build/release/images/jdk/bin/java.exe"
-JAR="D:/kona/task2-serialization/jmh/target/serialization-bench.jar"
-OUT="D:/kona/task2-serialization/reports/stage2-strings"
+JDK="<KONA_ROOT>/build/release/images/jdk/bin/java.exe"
+JAR="<LAB_ROOT>/jmh/target/serialization-bench.jar"
+OUT="<LAB_ROOT>/reports/stage2-strings"
 BENCH='StringCharsetBench\.(write|read)(Ascii96|Cjk32|Emoji16|Ascii32)'
 
 echo "[1/6] switch to ORIG"

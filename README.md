@@ -102,6 +102,9 @@ task2-serialization/
 | 功能回归 | jtreg：`test/jdk/java/io/{Serializable,ObjectInputStream,ObjectStreamClass}` |
 | 性能判据 | **B/op**（`gc.alloc.rate.norm`，±0.1 B）为主判据，跨时段可比；吞吐仅采信同会话紧邻 A/B |
 
+路径占位符（已脱敏）：`<KONA_ROOT>` = TencentKona-25 源码/构建根，`<LAB_ROOT>` = 本仓库根（task2-serialization），
+`<JTREG_HOME>` = jtreg 解压根，`<USER_HOME>` = 用户主目录；文档与脚本中的本地绝对路径均已替换为占位符。
+
 性能测试一律使用 Kona JDK 25 release 镜像；测试方法设计理由见
 [baseline/采用该测试方法的原因.md](baseline/采用该测试方法的原因.md)。
 </details>
@@ -139,7 +142,7 @@ task2-serialization/
 
 **2.2.6 第三轮：review #2 整改** → source commit `0d66b806275`（TencentKona-25 fork） + deliverable commit `cd81812`（本仓库）
 
-- review #2 (Strong Accept) 的 4 项整改 + §6 卫生全部落地：sbuf 局部重命名 + builder 复用 Javadoc（`ObjectInputStream.java`）+ 跨模块影响半径扩充（`DataInputStream.ReadUTF` + `DataOutputStream.WriteUTF` + `CounterOverflow` + `jdk/classfile/Utf8EntryTest`，共 164/164 + 514 framework 子用例）+ 报告脱敏 + 全量 bench 表注（`compare_fullbench.py` 加可比性警告）。
+- review #2 (Strong Accept) 的 4 项整改 + §6 卫生落地：sbuf 局部重命名 + builder 复用 Javadoc（`ObjectInputStream.java`）+ 跨模块影响半径扩充（`DataInputStream.ReadUTF` + `DataOutputStream.WriteUTF` + `CounterOverflow` + `jdk/classfile/Utf8EntryTest`，共 164/164 + 514 framework 子用例）+ 交付物脱敏（本地绝对路径 → `<KONA_ROOT>`/`<LAB_ROOT>`/`<JTREG_HOME>`/`<USER_HOME>` 占位符、个人邮箱 → GitHub noreply、jtreg 环境页 `java.library.path`/`user.*` 打码）+ 全量 bench 表注（`compare_fullbench.py` 加可比性警告）。
 - 报告：[5-最终交付报告 §11/§12](reports/5-最终交付报告.md) · [0-审查者导读](reports/0-审查者导读.md) · 评审：[jvm-crash-lab/issues/2](https://github.com/lxk12356/jvm-crash-lab/issues/2)
 
 **2.3 优化性能与差异分析**
